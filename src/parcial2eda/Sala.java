@@ -17,14 +17,14 @@ public class Sala {
     private String piedra;
     private int contadorsala = 1;
 
-    public Sala (String nombre) {
+    public Sala(String nombre) {
         this.nombre = nombre;
         this.id_sala = contadorsala;
         this.piedra = null;
-        contadorsala ++;
+        contadorsala++;
     }
 
-    public static ArrayList<Sala> invocarSala () {
+    public static ArrayList<Sala> invocarSala() {
         ArrayList<Sala> salascreadas = new ArrayList<>();
         Sala s1 = new Sala("Entrada");
         Sala s2 = new Sala("calobozo");
@@ -37,40 +37,40 @@ public class Sala {
         return salascreadas;
     }
 
-    public String getNombre () {
+    public String getNombre() {
         return nombre;
     }
 
-    public void setNombre (String nombre) {
+    public void setNombre(String nombre) {
         this.nombre = nombre;
     }
 
-    public int getId_sala () {
+    public int getId_sala() {
         return id_sala;
     }
 
-    public void setId_sala (int id_sala) {
+    public void setId_sala(int id_sala) {
         this.id_sala = id_sala;
     }
 
-    public String getPiedra () {
+    public String getPiedra() {
         return piedra;
     }
 
-    public void setPiedra (String piedra) {
+    public void setPiedra(String piedra) {
         this.piedra = piedra;
     }
 
-    public int getContadorsala () {
+    public int getContadorsala() {
         return contadorsala;
     }
 
-    public void setContadorsala (int contadorsala) {
+    public void setContadorsala(int contadorsala) {
         this.contadorsala = contadorsala;
     }
 
     @Override
-    public String toString () {
+    public String toString() {
         return "Esta en la Sala " + nombre;
     }
 }
