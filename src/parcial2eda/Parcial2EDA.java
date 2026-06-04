@@ -34,7 +34,5 @@ public class Parcial2EDA {
         g1.agregarCamino(s2, s3);
         g1.agregarCamino(s2, s4);
 //        g1.imprimirGrafo(g1.matrizGrafo);
-        
-        
     }
 }
