@@ -15,7 +15,7 @@ public class Grafo {
     private Sala sala;
     private int arco;
     private ArrayList<Acertijo> acertijo;
-    Integer matrizGrafo[][];
+    public Integer matrizGrafo[][];
     ArrayList<Sala> salas = new ArrayList<>();
 
     public Grafo () {

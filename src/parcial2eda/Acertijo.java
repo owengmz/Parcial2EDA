@@ -12,10 +12,10 @@ import java.util.ArrayList;
  */
 public class Acertijo {
 
-    int puntaje;
-    String pregunta;
-    String respuesta;
-    boolean condicion;
+    private int puntaje;
+    private String pregunta;
+    private String respuesta;
+    private boolean condicion;
 
     public Acertijo(int puntaje, String pregunta, String respuesta) {
         this.puntaje = puntaje;

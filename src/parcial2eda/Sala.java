@@ -12,10 +12,10 @@ import java.util.ArrayList;
  */
 public class Sala {
 
-    String nombre;
-    int id_sala;
-    String piedra;
-    int contadorsala = 1;
+    private String nombre;
+    private int id_sala;
+    private String piedra;
+    private int contadorsala = 1;
 
     public Sala (String nombre) {
         this.nombre = nombre;
