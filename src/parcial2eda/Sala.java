@@ -1,7 +1,14 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+//para entregar 
+//
+//pocisionar jugador 
+//elegir donde y moverlo
+//interactuar por consola y que haga eso mismo
+//meter los acertijos
+//
+//grabarnos
+//
+//
+////////
 package parcial2eda;
 
 import java.util.ArrayList;
