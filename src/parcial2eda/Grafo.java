@@ -1,21 +1,10 @@
-//para entregar 
-//
-//pocisionar jugador 
-//elegir donde y moverlo
-//interactuar por consola y que haga eso mismo
-//meter los acertijos
-//
-//grabarnos
-//
-//
-////////
 package parcial2eda;
 
 import java.util.ArrayList;
 
 /**
  *
- * @author Maxi
+ * @author Maxi, Alan, Heber
  */
 public class Grafo {
 
@@ -27,6 +16,46 @@ public class Grafo {
 
     public Grafo () {
         matrizGrafo = new Integer[4][4];
+    }
+
+    public Sala getSala () {
+        return sala;
+    }
+
+    public void setSala (Sala sala) {
+        this.sala = sala;
+    }
+
+    public int getArco () {
+        return arco;
+    }
+
+    public void setArco (int arco) {
+        this.arco = arco;
+    }
+
+    public ArrayList<Acertijo> getAcertijo () {
+        return acertijo;
+    }
+
+    public void setAcertijo (ArrayList<Acertijo> acertijo) {
+        this.acertijo = acertijo;
+    }
+
+    public Integer[][] getMatrizGrafo () {
+        return matrizGrafo;
+    }
+
+    public void setMatrizGrafo (Integer[][] matrizGrafo) {
+        this.matrizGrafo = matrizGrafo;
+    }
+
+    public ArrayList<Sala> getSalas () {
+        return salas;
+    }
+
+    public void setSalas (ArrayList<Sala> salas) {
+        this.salas = salas;
     }
 
     public void inicializarGrafo () {
@@ -48,6 +77,7 @@ public class Grafo {
         matrizGrafo[indiceOrigen][indiceDestino] = 1;
     }
 
+    // pedimos como parametro una matriz pero la matriz ya esta incorporado al grafo creo que no iria
     public void imprimirGrafo (Integer[][] matriz) {
         for (int i = 0; i < matrizGrafo.length; i ++) {
             for (int j = 0; j < matrizGrafo.length; j ++) {
@@ -56,6 +86,33 @@ public class Grafo {
             System.out.println();
         }
     }
+//  agregamos metodo para sortear Acertijo 
+// creamos un objeto acertijos invocamos el acertijo
+    // elejimos un acertijo random con Math y recorremos el acertijo
+    // retornamos el acertijo con su indice 
+
+    public Acertijo sortearAcertijo () {
+        ArrayList<Acertijo> acertijos = Acertijo.invocarAcertijo();
+        int indice = (int) (Math.random() * acertijos.size());
+        return acertijos.get(indice);
+    }
+    // creamos una lista vacia donde guardamos las salas a las que se pueda ir
+    // si el jugador esta en la entrada el index of va devolver 0 por que va estar en la posicion 0 de mi array 
+    // ese indice sera el valor de la fila que vamos a leer en la matriz
+    // recorremos las 4 columnas de esa misma fila 
+    // preguntamos si el indice (fila) y la columna j (que recorremos) es igual a 1 entonces se agregue a mi arraylist conectadas
+    // por ultimo devolvemos la lista sala2 y sala 3 que es la puerta que esta habilitada en mi entrada
+
+    public ArrayList<Sala> SalasConectadas (Sala salaActual) {
+        ArrayList<Sala> conectadas = new ArrayList<>();
+        int indice = salas.indexOf(salaActual);
+        for (int j = 0; j < matrizGrafo.length; j ++) {
+            if (matrizGrafo[indice][j] == 1) {
+                conectadas.add(salas.get(j));
+            }
+        }
+        return conectadas;
+    }
 
     @Override
     public String toString () {
@@ -63,3 +120,9 @@ public class Grafo {
             + acertijo + ", matrizGrafo=" + matrizGrafo + '}';
     }
 }
+// LO QUE FALTA 
+//MENU INTERACTIVO USAR SCANER 
+//CREAR EL JUGADOR EN EL MAIN 
+//LLAMAR METODOS DEL JUGADOR MOVERJUGADOR Y SUMAR PUNTOS
+//OPCION DE RETROCEDER EN EL MENU CON SCANER 
+

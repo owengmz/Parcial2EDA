@@ -1,28 +1,17 @@
-//para entregar 
-//
-//pocisionar jugador 
-//elegir donde y moverlo
-//interactuar por consola y que haga eso mismo
-//meter los acertijos
-//
-//grabarnos
-//
-//
-////////
 package parcial2eda;
 
 import java.util.ArrayList;
 
 /**
  *
- * @author Maxi
+ * @author Maxi, Alan, Heber
  */
 public class Acertijo {
 
     private int puntaje;
     private String pregunta;
     private String respuesta;
-    private boolean condicion;
+//    private boolean condicion; no la estamos usando 
 
     public Acertijo (int puntaje, String pregunta, String respuesta) {
         this.puntaje = puntaje;
@@ -30,8 +19,32 @@ public class Acertijo {
         this.respuesta = respuesta;
     }
 
+    public int getPuntaje () {
+        return puntaje;
+    }
+
+    public void setPuntaje (int puntaje) {
+        this.puntaje = puntaje;
+    }
+
+    public String getPregunta () {
+        return pregunta;
+    }
+
+    public void setPregunta (String pregunta) {
+        this.pregunta = pregunta;
+    }
+
+    public String getRespuesta () {
+        return respuesta;
+    }
+
+    public void setRespuesta (String respuesta) {
+        this.respuesta = respuesta;
+    }
+
     public static ArrayList<Acertijo> invocarAcertijo () {
-        ArrayList<Acertijo> misAcertijos = new ArrayList();
+        ArrayList<Acertijo> misAcertijos = new ArrayList<>();
         Acertijo a1 = new Acertijo(10,
             "Cuanto más grande es, menos se ve. ¿Qué es?", "oscuridad");
         Acertijo a2 = new Acertijo(15,
@@ -72,7 +85,7 @@ public class Acertijo {
     }
 
     public static ArrayList<String> invocarResErroneas () {
-        ArrayList<String> misrespuestasmalas = new ArrayList();
+        ArrayList<String> misrespuestasmalas = new ArrayList<>();
         String r1 = "silencio";
         String r2 = "viento";
         String r3 = "colador";
@@ -96,3 +109,8 @@ public class Acertijo {
         return misrespuestasmalas;
     }
 }
+// LO QUE FALTA 
+//MENU INTERACTIVO USAR SCANER 
+//CREAR EL JUGADOR EN EL MAIN 
+//LLAMAR METODOS DEL JUGADOR MOVERJUGADOR Y SUMAR PUNTOS
+//OPCION DE RETROCEDER EN EL MENU CON SCANER 
