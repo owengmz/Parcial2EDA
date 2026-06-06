@@ -43,6 +43,8 @@ public class Parcial2EDA {
         Scanner inicio = new Scanner(System.in);
         //scanner para int
         Scanner inicionumero = new Scanner(System.in);
+        //esta variable la usamos al usar la piedra
+        String respescrita=null;
         System.out.println("Bienvenidos a mi casa......");
         System.out.println("En este momento estan en la entrada bienvenido ");
         System.out.println("Quien eres tu?.....");
@@ -91,11 +93,63 @@ public class Parcial2EDA {
                 System.out.println("Hm... avanza... ");
                 j1.sumarPuntos(acertijoaleatorio.getPuntaje());
                 j1.moverJugador(saladestino);
+                if(j1.getSalaActual().getNombre().contentEquals("sotano")&&j1.getSalaActual().getPiedra()==null){
+                   
+                    System.out.println("Bienvenido a mi "+j1.getSalaActual().getNombre()+ " te tengo una sorpresa ");
+                    System.out.println("Pero antes de dartela quiero ver silo mereces ");
+                    System.out.println("dime un numero del 1 al 3 ");
+                    int numjefe= (int) (Math.random() * 3);
+                    resp=inicionumero.nextInt();
+                    inicionumero.nextLine();
+                    if(numjefe == resp){
+                         j1.getSalaActual().setPiedra("usada");
+                        System.out.println("Ash .. que molesto, pero cumplo, te doy esto..");
+                        
+                        System.out.println("===Es una piedra magica brilla intensamente===");
+                        System.out.println("======se esta generando un portal======");
+                        System.out.println("este lugar es desconocido que tal si le damos un nombre esta sala especial? ");
+                     respescrita=inicio.nextLine();
+                        System.out.println("Okay se llamara asi");
+                        Sala salaPiedra= new Sala(respescrita);
+                        g1.agradarGrafo();
+                        g1.agregarSalas(salaPiedra);
+                        j1.moverJugador(salaPiedra);
+                        
+                        System.out.println(salaPiedra);
+                        System.out.println("wow esta sala conecta con una sala cualquiera que deseas que tramposo.. ");
+                        System.out.println("a donde queres ir");
+                        for (int i = 0; i < salas.size(); i++) {
+                            System.out.println(i+1+ ") "+ salas.get(i));
+                        }
+                        resp=inicionumero.nextInt();
+                        switch (resp-1) { 
+                            case 0:  
+                                g1.agregarCamino(salaPiedra, s1 );
+                                g1.agregarCamino(s1,salaPiedra );
+                                break;
+                            case 1:
+                                g1.agregarCamino(salaPiedra, s2 );
+                                g1.agregarCamino(s2,salaPiedra );
+                                break;
+                            case 2: 
+                                g1.agregarCamino(salaPiedra, s3 );
+                                g1.agregarCamino(s3,salaPiedra );
+                                break;
+                            case 3:
+                                g1.agregarCamino(salaPiedra, s4 );
+                                g1.agregarCamino(s4,salaPiedra );
+                                break;
+                        }
+                        System.out.println("Okay se creo el camino nuevo buena suerte");
+                        System.out.println("====== La piedra desaparecio ====== ");
+                        
+                    }
+                }
                 System.out.println("Vaya no saliste aun sigamos.. ");
             } else {
                 System.out.println("Ahhhh... noo no es esa la respuesta ");
 
-                if (j1.getSalaActual().getNombre().equalsIgnoreCase("entrada")) {
+                if (j1.getSalaActual().getNombre().equalsIgnoreCase("entrada")||j1.getSalaActual().getNombre().equalsIgnoreCase(respescrita)) {
                     System.out.println("Para tu suerte no paso nada , quieres hacerlo de nuevo? ");
 
                 } else {
