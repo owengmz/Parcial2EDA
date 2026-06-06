@@ -9,15 +9,11 @@ import java.util.ArrayList;
 public class Sala {
 
     private String nombre;
-    private int id_sala;
     private String piedra;
-    private int contadorsala = 1;
 
     public Sala (String nombre) {
         this.nombre = nombre;
-        this.id_sala = contadorsala;
         this.piedra = null;
-        contadorsala ++;
     }
 
     public static ArrayList<Sala> invocarSala () {
@@ -32,6 +28,17 @@ public class Sala {
         salascreadas.add(s4);
         return salascreadas;
     }
+    
+    public static Sala buscador(ArrayList<Sala> salas, String sala){
+        for (Sala s : salas) {
+
+        if (s.getNombre().equalsIgnoreCase(sala)) {
+            return s; // ¡Encontrada! Devolvemos la sala inmediatamente y el método termina
+        }
+    }
+        System.out.println("Error sala no encontrada (mal escrita)");
+        return null;
+    }
 
     public String getNombre () {
         return nombre;
@@ -41,13 +48,9 @@ public class Sala {
         this.nombre = nombre;
     }
 
-    public int getId_sala () {
-        return id_sala;
-    }
 
-    public void setId_sala (int id_sala) {
-        this.id_sala = id_sala;
-    }
+
+
 
     public String getPiedra () {
         return piedra;
@@ -57,13 +60,6 @@ public class Sala {
         this.piedra = piedra;
     }
 
-    public int getContadorsala () {
-        return contadorsala;
-    }
-
-    public void setContadorsala (int contadorsala) {
-        this.contadorsala = contadorsala;
-    }
 
     @Override
     public String toString () {

@@ -113,6 +113,17 @@ public class Grafo {
         }
         return conectadas;
     }
+    public static void mostrarCaminos(Grafo g1, Jugador j1) {
+    ArrayList<Sala> opciones = g1.SalasConectadas(j1.getSalaActual());
+    System.out.println("\n Elije: ");
+    if (opciones.isEmpty()) {
+        System.out.println("¡Estás atrapado! No hay salidas desde esta sala.");
+        return;
+    }
+    for (int i = 0; i < opciones.size(); i++) {
+        System.out.println((i+1) + ". Ir a: " + opciones.get(i).getNombre());
+    }
+}
 
     @Override
     public String toString () {
