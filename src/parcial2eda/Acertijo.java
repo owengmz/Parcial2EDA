@@ -18,14 +18,14 @@ public class Acertijo {
         this.puntaje = puntaje;
         this.pregunta = pregunta;
         this.respuesta = respuestacorrecta;
-        this.respuestamal= respuestaincorrecta;
+        this.respuestamal = respuestaincorrecta;
     }
 
-    public String getRespuestamal() {
+    public String getRespuestamal () {
         return respuestamal;
     }
 
-    public void setRespuestamal(String respuestamal) {
+    public void setRespuestamal (String respuestamal) {
         this.respuestamal = respuestamal;
     }
 
@@ -56,31 +56,33 @@ public class Acertijo {
     public static ArrayList<Acertijo> invocarAcertijo () {
         ArrayList<Acertijo> misAcertijos = new ArrayList<>();
         Acertijo a1 = new Acertijo(10,
-            "Cuanto más grande es, menos se ve. ¿Qué es?", "oscuridad","silencio");
+            "Cuanto más grande es, menos se ve. Que es?", "oscuridad",
+            "silencio");
         Acertijo a2 = new Acertijo(15,
-            "Vuelo sin alas, lloro sin ojos. ¿Qué soy?", "nube", "viento");
+            "Vuelo sin alas, lloro sin ojos. Que soy?", "nube", "viento");
         Acertijo a3 = new Acertijo(20,
-            "Tengo agujeros, pero igual puedo retener liquido ¿Qué soy?",
-            "esponja","colador");
+            "Tengo agujeros, pero igual puedo retener liquido. Que soy?",
+            "esponja", "colador");
         Acertijo a4 = new Acertijo(25,
-            "Siempre estoy en el pasado, pero me creas en el presente y nunca me vas a poder cambiar en el futuro. ¿Qué soy?",
-            "recuerdo","sueno");
+            "Siempre estoy en el pasado, pero me creas en el presente y nunca me vas a poder cambiar en el futuro. Que soy?",
+            "recuerdo", "sueno");
         Acertijo a5 = new Acertijo(30,
-            "Te pertenezco por completo, pero la gente que conoces lo usa mas que vos. ¿Qué soy?",
-            "nombre","telefono");
+            "Te pertenezco por completo, pero la gente que conoces lo usa mas que vos. Que soy?",
+            "nombre", "telefono");
         Acertijo a6 = new Acertijo(35,
-            "Cuanto mas lavo, mas sucio soy. ¿Qué soy?", "esponja","agua");
+            "Cuanto mas lavo, mas sucio soy. Que soy?", "esponja", "agua");
         Acertijo a7 = new Acertijo(40,
-            "Si me nombras, ya no existo, me rompo. ¿Qué soy?", "silencio","secreto");
+            "Si me nombras, ya no existo, me rompo. Que soy?", "silencio",
+            "secreto");
         Acertijo a8 = new Acertijo(45,
-            "Tengo llaves pero no abro puertas, tengo notas pero no escribo ninguan carta. ¿Qué soy?",
-            "piano","candado");
+            "Tengo llaves pero no abro puertas, tengo notas pero no escribo ninguan carta. Que soy?",
+            "piano", "candado");
         Acertijo a9 = new Acertijo(50,
-            "Corro todo el dia pero no tengo piernas, y tengo boca pero no hablo. ¿Qué soy?",
-            "rio","viento");
+            "Corro todo el dia pero no tengo piernas, y tengo boca pero no hablo. Que soy?",
+            "rio", "viento");
         Acertijo a10 = new Acertijo(55,
-            "Si me tenes, me queres compartir. Si me compartis, ya no me tenes. ¿Qué soy?",
-            "secreto","chiste");
+            "Si me tenes, me queres compartir. Si me compartis, ya no me tenes. Que soy?",
+            "secreto", "chiste");
         misAcertijos.add(a1);
         misAcertijos.add(a2);
         misAcertijos.add(a3);
@@ -94,11 +96,3 @@ public class Acertijo {
         return misAcertijos;
     }
 }
-
-
-        
-// LO QUE FALTA 
-//MENU INTERACTIVO USAR SCANER 
-//CREAR EL JUGADOR EN EL MAIN 
-//LLAMAR METODOS DEL JUGADOR MOVERJUGADOR Y SUMAR PUNTOS
-//OPCION DE RETROCEDER EN EL MENU CON SCANER 

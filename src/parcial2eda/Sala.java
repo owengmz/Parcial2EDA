@@ -28,14 +28,14 @@ public class Sala {
         salascreadas.add(s4);
         return salascreadas;
     }
-    
-    public static Sala buscador(ArrayList<Sala> salas, String sala){
-        for (Sala s : salas) {
 
-        if (s.getNombre().equalsIgnoreCase(sala)) {
-            return s; // ¡Encontrada! Devolvemos la sala inmediatamente y el método termina
+    public static Sala buscador (ArrayList<Sala> salas, String sala) {
+        for (Sala s : salas) {
+            if (s.getNombre().
+                equalsIgnoreCase(sala)) {
+                return s; // ¡Encontrada! Devolvemos la sala inmediatamente y el método termina
+            }
         }
-    }
         System.out.println("Error sala no encontrada (mal escrita)");
         return null;
     }
@@ -48,10 +48,6 @@ public class Sala {
         this.nombre = nombre;
     }
 
-
-
-
-
     public String getPiedra () {
         return piedra;
     }
@@ -60,15 +56,8 @@ public class Sala {
         this.piedra = piedra;
     }
 
-
     @Override
     public String toString () {
         return "Esta en la Sala " + nombre;
     }
 }
-// LO QUE FALTA 
-//MENU INTERACTIVO USAR SCANER 
-//CREAR EL JUGADOR EN EL MAIN 
-//LLAMAR METODOS DEL JUGADOR MOVERJUGADOR Y SUMAR PUNTOS
-//OPCION DE RETROCEDER EN EL MENU CON SCANER 
-
