@@ -21,7 +21,7 @@ public class Sala {
         Sala s1 = new Sala("Entrada");
         Sala s2 = new Sala("calobozo");
         Sala s3 = new Sala("sotano");
-        Sala s4 = new Sala("Salida");
+        Sala s4 = new Sala("Tunel");
         salascreadas.add(s1);
         salascreadas.add(s2);
         salascreadas.add(s3);

@@ -13,11 +13,11 @@ public class Parcial2EDA {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // creamos Salas
+        // creamos los vertices para el grafo
         Sala s1 = new Sala("Entrada");
         Sala s2 = new Sala("calobozo");
         Sala s3 = new Sala("sotano");
-        Sala s4 = new Sala("Salida");
+        Sala s4 = new Sala("Tunel");
         // creamos el grafo y agregamos las salas
         Grafo g1 = new Grafo();
         g1.inicializarGrafo();
@@ -25,8 +25,7 @@ public class Parcial2EDA {
         g1.agregarSalas(s2);
         g1.agregarSalas(s3);
         g1.agregarSalas(s4);
-        // agregamos los caminos segun diagrama
-        System.out.println("---------------");
+        // agregamos las aristas segun diagrama que hicimos
         g1.agregarCamino(s1, s2);
         g1.agregarCamino(s1, s3);
         g1.agregarCamino(s3, s1);
@@ -54,7 +53,7 @@ public class Parcial2EDA {
         System.out.println("Ahh esta bien.. bienvenido " + nombre + " para tu suerte la entrada esta cerrada, deberas encontrar la salida por otro lado ...");
 
         // Bucle de informacion mientras no este en la salida
-        while (!j1.getSalaActual().getNombre().equalsIgnoreCase("Salida")) {
+        while (!j1.getSalaActual().getNombre().equalsIgnoreCase("tunel")) {
 
             System.out.println("\n========================================");
             System.out.println(j1.getSalaActual());
@@ -170,8 +169,8 @@ public class Parcial2EDA {
         System.out.println("Jugador: "+ j1.getNombre()+" Puntaje final: "+ j1.getPuntaje());
         inicio.close();
         inicionumero.close();
-        
-
+        System.out.println("grafo final");
+        g1.imprimirGrafo();
     }
 }
 
