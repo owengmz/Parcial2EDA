@@ -76,7 +76,7 @@ public class Parcial2EDA {
             inicionumero.nextLine(); // Limpiar buffer
             //En caso que ponga una opcion distinta de 1 y 2 
             if (eleccion < 1 || eleccion > puertas.size()) {
-                System.out.println("Oye te crees gracioso....  elije bien..");
+                System.out.println("Oye te crees gracioso....  elige bien..");
                 continue;
             }
             Sala saladestino = puertas.get(eleccion - 1);
@@ -105,7 +105,7 @@ public class Parcial2EDA {
                     System.out.println(
                             "Pero antes de dartela quiero ver si te lo mereces ");
                     System.out.println("dime un numero del 1 al 3 ");
-                    int numjefe = (int) (Math.random() * 3);
+                    int numjefe =  2;//(int)(Math.random() * 3); para el video lo asignamos como 2
                     resp = inicionumero.nextInt();
                     inicionumero.nextLine();
                     if (numjefe == resp) {
@@ -127,7 +127,7 @@ public class Parcial2EDA {
                         j1.moverJugador(salaPiedra);
                         System.out.println(salaPiedra);
                         System.out.println(
-                                "wow esta sala conecta con todas las salas podes elejir cualquier sala, que tramposo.. ");
+                                "wow esta sala conecta con todas las salas podes elegir cualquier sala, que tramposo.. ");
                         System.out.println("a donde queres ir");
                         for (int i = 0; i < salas.size(); i++) {
                             System.out.println(i + 1 + ") " + salas.get(i));

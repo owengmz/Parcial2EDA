@@ -119,7 +119,7 @@ public class Grafo {
         System.out.println("\n Elije: ");
         if (opciones.isEmpty()) {
             System.out.println(
-                "¡Estás atrapado! No hay salidas desde esta sala.");
+                "No hay salidas desde esta sala.");
             return;
         }
         for (int i = 0; i < opciones.size(); i ++) {
