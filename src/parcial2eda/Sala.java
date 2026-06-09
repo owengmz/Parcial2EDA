@@ -19,7 +19,7 @@ public class Sala {
     public static ArrayList<Sala> invocarSala () {
         ArrayList<Sala> salascreadas = new ArrayList<>();
         Sala s1 = new Sala("Entrada");
-        Sala s2 = new Sala("calobozo");
+        Sala s2 = new Sala("calabozo");
         Sala s3 = new Sala("sotano");
         Sala s4 = new Sala("Tunel");
         salascreadas.add(s1);

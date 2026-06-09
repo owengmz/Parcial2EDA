@@ -12,10 +12,10 @@ public class Parcial2EDA {
     /**
      * @param args the command line arguments
      */
-    public static void main (String[] args) {
+    public static void main(String[] args) {
         // creamos los vertices para el grafo
         Sala s1 = new Sala("Entrada");
-        Sala s2 = new Sala("calobozo");
+        Sala s2 = new Sala("calabozo");
         Sala s3 = new Sala("sotano");
         Sala s4 = new Sala("Tunel");
         // creamos el grafo y agregamos las salas
@@ -28,13 +28,14 @@ public class Parcial2EDA {
         // agregamos las aristas segun diagrama que hicimos
         g1.agregarCamino(s1, s2);
         g1.agregarCamino(s1, s3);
-        g1.agregarCamino(s3, s1);
         g1.agregarCamino(s1, s1);
+        g1.agregarCamino(s3, s1);
         g1.agregarCamino(s3, s2);
         g1.agregarCamino(s2, s3);
         g1.agregarCamino(s2, s4);
-        //  System.out.println("--- matriz del grafo ---");           TEST GRAFO 
-        //   g1.imprimirGrafo(g1.matrizGrafo);
+        g1.agregarCamino(s2, s1);
+        System.out.println("--- matriz del grafo inicial Sala con sus puertas ---");
+        g1.imprimirGrafo();
         ArrayList<Sala> salas = Sala.invocarSala();
         //scanner para String
         Scanner inicio = new Scanner(System.in);
@@ -42,6 +43,14 @@ public class Parcial2EDA {
         Scanner inicionumero = new Scanner(System.in);
         //esta variable la usamos al usar la piedra
         String respescrita = null;
+        System.out.println("==============");
+        System.out.println("==============");
+        System.out.println("==============");
+        System.out.println("==============");
+        System.out.println("==============");
+        System.out.println("==============");
+        System.out.println("=======Inicia el juego=======");
+
         System.out.println("Bienvenidos a mi casa......");
         System.out.println("En este momento estan en la entrada bienvenido ");
         System.out.println("Quien eres tu?.....");
@@ -49,11 +58,11 @@ public class Parcial2EDA {
         //Sala salaactual = Sala.buscador(salas, "entrada");
         Jugador j1 = new Jugador(nombre, s1);
         System.out.println("Ahh esta bien.. bienvenido " + nombre
-            + " para tu suerte la entrada esta cerrada, deberas encontrar la salida por otro lado ...");
+                + " para tu suerte la entrada esta cerrada, deberas encontrar la salida por otro lado ...");
         // Bucle de informacion mientras no este en la salida
-        while ( ! j1.getSalaActual().
-            getNombre().
-            equalsIgnoreCase("tunel")) {
+        while (!j1.getSalaActual().
+                getNombre().
+                equalsIgnoreCase("tunel")) {
             System.out.println("\n========================================");
             System.out.println(j1.getSalaActual());
             System.out.println("Puntaje actual: " + j1.getPuntaje());
@@ -62,18 +71,18 @@ public class Parcial2EDA {
             ArrayList<Sala> puertas = g1.SalasConectadas(j1.getSalaActual());
             // Pedir selección de puerta
             System.out.println(
-                "Tenes estas puertas, estas direcciones, cual desear ir? ");
+                    "Tienes estas puertas, estas direcciones, a cual desear ir? ");
             int eleccion = inicionumero.nextInt();
             inicionumero.nextLine(); // Limpiar buffer
             //En caso que ponga una opcion distinta de 1 y 2 
             if (eleccion < 1 || eleccion > puertas.size()) {
-                System.out.println("Oye te crees gracioso....  eligue bien..");
+                System.out.println("Oye te crees gracioso....  elije bien..");
                 continue;
             }
             Sala saladestino = puertas.get(eleccion - 1);
             System.out.println("Vaya... elegiste " + saladestino.getNombre());
             System.out.println(
-                "pero no dejare que entre tan facilmente... te tengo una pregunta...");
+                    "pero no dejare que entres tan facilmente... te tengo una pregunta...");
             Acertijo acertijoaleatorio = g1.sortearAcertijo();
             System.out.println(acertijoaleatorio.getPregunta());
             System.out.println("");
@@ -88,39 +97,39 @@ public class Parcial2EDA {
                 j1.sumarPuntos(acertijoaleatorio.getPuntaje());
                 j1.moverJugador(saladestino);
                 if (j1.getSalaActual().
-                    getNombre().
-                    contentEquals("sotano") && j1.getSalaActual().
-                    getPiedra() == null) {
+                        getNombre().
+                        contentEquals("sotano") && j1.getSalaActual().
+                        getPiedra() == null) {
                     System.out.println("Bienvenido a mi " + j1.getSalaActual().
-                        getNombre() + " te tengo una sorpresa ");
+                            getNombre() + " te tengo una sorpresa ");
                     System.out.println(
-                        "Pero antes de dartela quiero ver silo mereces ");
+                            "Pero antes de dartela quiero ver si te lo mereces ");
                     System.out.println("dime un numero del 1 al 3 ");
                     int numjefe = (int) (Math.random() * 3);
                     resp = inicionumero.nextInt();
                     inicionumero.nextLine();
                     if (numjefe == resp) {
                         j1.getSalaActual().
-                            setPiedra("usada");
+                                setPiedra("usada");
                         System.out.println(
-                            "Ash .. que molesto, pero cumplo, te doy esto..");
+                                "Ash .. que molesto, pero cumplo mi palabra, tomalo..");
                         System.out.println(
-                            "===Es una piedra magica brilla intensamente===");
+                                "===Es una piedra magica que brilla intensamente===");
                         System.out.println(
-                            "======se esta generando un portal======");
+                                "======se esta generando un portal======");
                         System.out.println(
-                            "este lugar es desconocido que tal si le damos un nombre esta sala especial? ");
+                                "este lugar es desconocido que tal si le pones un nombre a esta sala especial? ");
                         respescrita = inicio.nextLine();
-                        System.out.println("Okay se llamara asi");
+                        System.out.println("Okay esta sala se llamara asi");
                         Sala salaPiedra = new Sala(respescrita);
                         g1.agradarGrafo();
                         g1.agregarSalas(salaPiedra);
                         j1.moverJugador(salaPiedra);
                         System.out.println(salaPiedra);
                         System.out.println(
-                            "wow esta sala conecta con una sala cualquiera que deseas que tramposo.. ");
+                                "wow esta sala conecta con todas las salas podes elejir cualquier sala, que tramposo.. ");
                         System.out.println("a donde queres ir");
-                        for (int i = 0; i < salas.size(); i ++) {
+                        for (int i = 0; i < salas.size(); i++) {
                             System.out.println(i + 1 + ") " + salas.get(i));
                         }
                         resp = inicionumero.nextInt();
@@ -143,28 +152,26 @@ public class Parcial2EDA {
                                 break;
                         }
                         System.out.println(
-                            "Okay se creo el camino nuevo buena suerte");
+                                "Okay se creo el camino nuevo buena suerte");
                         System.out.println(
-                            "====== La piedra desaparecio ====== ");
+                                "====== La piedra desaparecio ====== ");
                     }
                 }
                 System.out.println("Vaya no saliste aun sigamos.. ");
-            }
-            else {
+            } else {
                 System.out.println("Ahhhh... noo no es esa la respuesta ");
                 if (j1.getSalaActual().
-                    getNombre().
-                    equalsIgnoreCase("entrada") || j1.getSalaActual().
-                    getNombre().
-                    equalsIgnoreCase(respescrita)) {
+                        getNombre().
+                        equalsIgnoreCase("entrada") || j1.getSalaActual().
+                        getNombre().
+                        equalsIgnoreCase(respescrita)) {
                     System.out.println(
-                        "Para tu suerte no paso nada , quieres hacerlo de nuevo? ");
-                }
-                else {
+                            "Para tu suerte no paso nada , quieres hacerlo de nuevo? ");
+                } else {
                     System.out.println("Avanza...");
                     j1.retroceder();
                     System.out.println(
-                        "PERO NO ES LA SALA QUE ELIJISTE JAJAJAJA Veamos como salimos ahora ");
+                            "PERO NO ES LA SALA QUE ELIJISTE JAJAJAJA Veamos como salimos ahora ");
                 }
             }
         }
@@ -175,10 +182,15 @@ public class Parcial2EDA {
         System.out.println("Juego terminado!, felicidades!");
         System.out.println("=========================");
         System.out.println("Jugador: " + j1.getNombre() + " Puntaje final: "
-            + j1.getPuntaje());
+                + j1.getPuntaje());
         inicio.close();
         inicionumero.close();
-        System.out.println("grafo final");
+        System.out.println("==============");
+        System.out.println("==============");
+        System.out.println("==============");
+        System.out.println("==============");
+        System.out.println("==============");
+        System.out.println("grafo final ");
         g1.imprimirGrafo();
     }
 }
